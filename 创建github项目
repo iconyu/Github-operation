@@ -1,0 +1,32 @@
+1.用户登录
+登录网站 http://github.com,输入用户名和密码,创建远程库,设置为Public,初始化README。
+
+2.下载配置Git
+安装包下载安装Git,一路默认next即可。安装完成后,在菜单栏中可以找到Git Bash。接下来输入下列命令配置Git。
+$git config --global user.name "yourname"
+$git config --global user.email youremail@huawei.com
+
+3. 生成SSH Key
+输入下列命令生成SSH Key文件,过程中保存地址默认既可,并且会询问是否设置密码,如果不希望以后每次push等操作是都输入密码,可以直接回车。 
+完成后,在C:\Users\c84122207\.ssh中可以找到两种文件：id_rsa和id_rsa.pub。其中id_rsa是私钥文件,请妥善保管。id_rsa.pub是公钥,复制其中内容。
+$ ssh-keygen -t rsa -C your_email@huawei.com
+
+4.配置github的SSH
+在setting中New SSH Key SSH,Title可以随便填,Key中粘贴复制的id_rsa.pub的内容。
+
+5.克隆远程库到本地
+复制远程库的web url,打开git bash,输入下列命令。
+$git clone http://rnd-github.huawei.com/c84122207/Internship-summary.git
+
+6.上传文件
+在本地可以看到生成了本地库。将需要上传的文件放到该库目录下，进入本地库，输入命令即可。
+$cd 目的库路径
+$git add 文件名
+$git commit –m “命令提示语”
+$git push origin master
+
+7.删除库中文件夹
+$git pull origin master #将远程仓库里的项目拉下来
+$git rm –r –cached target #删除target文件夹
+$git commit –m “命令提示语” #提交操作
+$git push origin master #将本次更改更新到github上
